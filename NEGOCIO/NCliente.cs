@@ -25,6 +25,9 @@ namespace NEGOCIO
 
                 while (datos.SqlDataReader.Read())
                 {
+                    /*
+                    EDITAR 
+                    
                     aux = new Cliente();
                     aux.id= (int) datos.SqlDataReader["Id"];
                     aux.Codigo = (string) datos.SqlDataReader["Codigo"];
@@ -39,7 +42,7 @@ namespace NEGOCIO
     
                     aux.Categoria = new Categoria();
                     aux.Categoria.Descripcion = (string) datos.SqlDataReader["Categoria"].ToString();
-
+                    */
                     listaArticulos.Add(aux);
                 }
 
