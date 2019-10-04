@@ -10,11 +10,14 @@
       <input type="text" class="form-control" id="inputVoucher" placeholder="Número Voucher">
     </div> 
         </div>
-         <%--
+        <asp:Button ID="btnBuscarVoucher" Width="200" Height="40" BackColor="WindowText" BorderColor="Black" OnClick="btnBuscarVoucher_Click" runat="server" Text="Button" />
+        
+        <%--
              <div>
             <asp:TextBox runat="server" Width="1000" Height="40" ID="txtBuscar" BorderColor="Black" BorderStyle="Double"></asp:TextBox>
         </div>--%>
-        <p><a href="https://www.google.com" class="btn btn-primary btn-lg" id="txtBuscar" onclick="">Consultar Voucher &raquo;</a></p>
+        <%-- <p><a href="https://www.google.com" class="btn btn-primary btn-lg" id="txtBuscar" onclick="">Consultar Voucher &raquo;</a></p>--%>
+
     </div>
     <div></div>
 </asp:Content>

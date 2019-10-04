@@ -42,7 +42,8 @@ namespace NEGOCIO
         public Producto elegirProducto(int id)
         {
             //Producto producto = new Producto();
-            Producto aux = new Producto();
+            Producto aux;
+            Producto elegido= new Producto();
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -52,22 +53,23 @@ namespace NEGOCIO
 
                 while (datos.SqlDataReader.Read())
                 {
-                    
+                    aux = new Producto();
                     aux.id = (int)datos.SqlDataReader["Id"];
                     if(aux.id==id)
                     {
                         aux.titulo = (String)datos.SqlDataReader["Titulo"].ToString();
                         aux.descripcion = (String)datos.SqlDataReader["Descripcion"].ToString();
                         aux.urlImagen = (String)datos.SqlDataReader["URLImagen"].ToString();
+                        elegido = aux;
+                        datos.CerrarConexionDB();
                     }
                 }
-                datos.CerrarConexionDB();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return producto;
+            return elegido;
         }
     }
 }

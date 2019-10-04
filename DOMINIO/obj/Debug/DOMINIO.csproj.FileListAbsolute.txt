@@ -1,0 +1,6 @@
+C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\DOMINIO\bin\Debug\DOMINIO.dll
+C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\DOMINIO\bin\Debug\DOMINIO.pdb
+C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\DOMINIO\obj\Debug\DOMINIO.csprojAssemblyReference.cache
+C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\DOMINIO\obj\Debug\DOMINIO.csproj.CoreCompileInputs.cache
+C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\DOMINIO\obj\Debug\DOMINIO.dll
+C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\DOMINIO\obj\Debug\DOMINIO.pdb

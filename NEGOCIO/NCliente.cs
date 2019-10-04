@@ -34,7 +34,6 @@ namespace NEGOCIO
                     aux.cp = (String)datos.SqlDataReader["CodigoPostal"].ToString();
                     aux.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
 
-                    //Me faltan cliente y producto
                     listarClientes.Add(aux);
                 }
                 datos.CerrarConexionDB();
@@ -94,7 +93,7 @@ namespace NEGOCIO
             try
             {
                 datos.seterQuery("INSERT INTO Clientes(DNI,Nombre,Apellido,Email,Direccion,Ciudad,CodigoPostal,FechaRegistro) VALUES(@DNI,@Nombre,@Apellido,@Email,@Direccion,@Ciudad,@CodigoPostal,GETDATE())");
-                //DNI,Nombre,Apellido,Email,Direccion,Ciudad,CodigoPostal,FechaRegistro
+
                 datos.agregarParametro("@DNI", cliente.dni);
                 datos.agregarParametro("@Nombre", cliente.nombre);
                 datos.agregarParametro("@Apellido", cliente.apellido);

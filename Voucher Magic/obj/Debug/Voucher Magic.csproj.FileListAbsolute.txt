@@ -71,3 +71,7 @@ C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\Voucher Magic\obj\Debug\Voucher M
 C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\Voucher Magic\obj\Debug\Voucher Magic.csproj.CopyComplete
 C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\Voucher Magic\obj\Debug\Voucher Magic.dll
 C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\Voucher Magic\obj\Debug\Voucher Magic.pdb
+C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\Voucher Magic\bin\DOMINIO.dll
+C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\Voucher Magic\bin\NEGOCIO.dll
+C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\Voucher Magic\bin\DOMINIO.pdb
+C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\Voucher Magic\bin\NEGOCIO.pdb
