@@ -8,8 +8,9 @@ namespace DOMINIO
 {
     public class Voucher
     {
-        Cliente cliente;
-        Producto producto;
+        public Cliente cliente;
+        public Producto producto;
+        public int id { get; set; }
         public string codigoVoucher { get; set; }
         public bool estado { get; set; }
         public DateTime fechaRegistro { get; set; }

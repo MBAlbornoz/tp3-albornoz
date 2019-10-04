@@ -41,7 +41,6 @@ namespace NEGOCIO
 	        }
 	        catch (Exception ex)
 	        {
-
 		    throw ex;
 	        }
         }
