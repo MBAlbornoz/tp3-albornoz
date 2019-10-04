@@ -6,12 +6,12 @@
         <h1>Voucher Magic</h1>
       <div class="form-group">
         <div><label for="inputVoucher" class="col-lg-2 control-label">Ingrese el Número del Voucher</label></div> 
-    <div class="col-lg-10">
-      <input type="text" class="form-control" id="inputVoucher" placeholder="Número Voucher">
-    </div> 
+        <div class="col-lg-10">
+
+       </div> <asp:TextBox ID="txtBuscarVoucher" BorderColor="Black" Height="40" Width="1000" placeholder="Número Voucher" runat="server"></asp:TextBox>
         </div>
-        <asp:Button ID="btnBuscarVoucher" Width="200" Height="40" BackColor="WindowText" BorderColor="Black" OnClick="btnBuscarVoucher_Click" runat="server" Text="Button" />
-        
+        <asp:Button ID="btnBuscarVoucher" Width="200" Height="40" BackColor="Window" BorderColor="Black" OnClick="btnBuscarVoucher_Click" runat="server" Text="Buscar Voucher"  href="https://github.com/MBAlbornoz/tp3-albornoz/" />
+         <%--<input type="text" class="form-control" id="inputVoucher" placeholder="Número Voucher"-- %>
         <%--
              <div>
             <asp:TextBox runat="server" Width="1000" Height="40" ID="txtBuscar" BorderColor="Black" BorderStyle="Double"></asp:TextBox>
