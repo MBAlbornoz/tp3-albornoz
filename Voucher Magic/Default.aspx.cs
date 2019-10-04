@@ -18,7 +18,7 @@ namespace Voucher_Magic
         protected void btnBuscarVoucher_Click(object sender, EventArgs e)
         {
             NVoucher buscar = new NVoucher();
-            String codVoucher = "5919099598E4C13F2ED5B12E50B1385";
+            String codVoucher = "5919099598E4C13F2ED5B12E50B1385F";
             bool encontro=buscar.existeVoucher(codVoucher);
             if(encontro)
             {
