@@ -90,14 +90,21 @@ namespace NEGOCIO
         }
         public void altaCliente(Cliente cliente)
         {
-            AccesoDatos bDatos = new AccesoDatos();
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                string query = "INSERT INTO ARTICULOS VALUES()";
+                datos.seterQuery("INSERT INTO Clientes(DNI,Nombre,Apellido,Email,Direccion,Ciudad,CodigoPostal,FechaRegistro) VALUES(@DNI,@Nombre,@Apellido,@Email,@Direccion,@Ciudad,@CodigoPostal,GETDATE())");
+                //DNI,Nombre,Apellido,Email,Direccion,Ciudad,CodigoPostal,FechaRegistro
+                datos.agregarParametro("@DNI", cliente.dni);
+                datos.agregarParametro("@Nombre", cliente.nombre);
+                datos.agregarParametro("@Apellido", cliente.apellido);
+                datos.agregarParametro("@Email", cliente.email);
+                datos.agregarParametro("@Direccion", cliente.direccion);
+                datos.agregarParametro("@Ciudad", cliente.ciudad);
+                datos.agregarParametro("@CodigoPostal", cliente.cp);
 
-                bDatos.seterQuery(query);
-                bDatos.ejecutarAccion();
-                bDatos.CerrarConexionDB();
+                datos.ejecutarAccion();
+                datos.CerrarConexionDB();
             }
             catch (Exception ex)
             {
