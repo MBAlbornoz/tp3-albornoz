@@ -53,6 +53,7 @@ namespace NEGOCIO
                 {
                     aux = new Voucher();
                     aux.codigoVoucher = (String)datos.SqlDataReader["CodigoVoucher"].ToString();
+
                     if (aux.codigoVoucher == codVoucher)
                     {
                         aux.estado = (bool)datos.SqlDataReader["Estado"];

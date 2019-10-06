@@ -10,6 +10,6 @@
 namespace Voucher_Magic {
     
     
-    public partial class About {
+    public partial class Productos {
     }
 }

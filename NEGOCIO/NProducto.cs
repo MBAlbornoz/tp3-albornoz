@@ -21,7 +21,7 @@ namespace NEGOCIO
                 while (datos.SqlDataReader.Read())
                 {
                     aux = new Producto();
-                    aux.id = (int)datos.SqlDataReader["Id"];
+                   // aux.id =(int) datos.SqlDataReader["Id"];
                     aux.titulo = (String)datos.SqlDataReader["Titulo"].ToString();
                     aux.descripcion = (String)datos.SqlDataReader["Descripcion"].ToString();
                     aux.urlImagen = (String)datos.SqlDataReader["URLImagen"].ToString();
