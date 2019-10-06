@@ -8,19 +8,16 @@
             text-align: center;
             background-color: lightblue;
             text-size-adjust: auto;
-       
         }
     </style>
 
     <div class="jumbotron">
-      <asp:Label  Font-Bold="true"  CssClass="nombrePagina" runat="server">Magic Voucher</asp:Label>
+      <asp:Label  Font-Bold="true" Font-Size="50px"  CssClass="nombrePagina" runat="server">Magic Voucher</asp:Label>
       <div class="form-group">
           <div>
             <div><label for="inputVoucher" class="col-lg-2 control-label">Ingrese el Número del Voucher</label></div>
+            <div><asp:TextBox ID="txtBuscarVoucher" AutoPostBack="true" BorderColor="Black" Height="40px" Width="504px" placeholder="Número Voucher" runat="server"></asp:TextBox></div>
           </div>
-        <div class="col-lg-10">
-
-       </div> <asp:TextBox ID="txtBuscarVoucher" AutoPostBack="true" BorderColor="Black" Height="40px" Width="504px" placeholder="Número Voucher" runat="server"></asp:TextBox>
         </div>
         <asp:Button ID="btnBuscarVoucher" Width="200" Height="40" BackColor="Window" BorderColor="Black" OnClick="btnBuscarVoucher_Click" runat="server" Text="Buscar Voucher"  href="https://github.com/MBAlbornoz/tp3-albornoz/" />
         

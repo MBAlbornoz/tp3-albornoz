@@ -15,7 +15,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                String query = "SELECT Id,DNI,Nombre, Apellido,Email,Direccion,Ciudad,SELECT Id,DNI,Nombre, Apellido,Email,Direccion,Ciudad,CodigoPostal,FechaRegistro FROM Clientes";
+                String query = "SELECT Id, DNI, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal, FechaRegistro FROM Clientes";
                 datos.seterQuery(query);
                 List<Cliente> listarClientes = new List<Cliente>();
                 Cliente aux;
@@ -24,7 +24,7 @@ namespace NEGOCIO
                 while (datos.SqlDataReader.Read())
                 {
                     aux = new Cliente();
-                    aux.id = (int)datos.SqlDataReader["Id"];
+                   // aux.id = (int)datos.SqlDataReader["Id"];
                     aux.dni = (int)datos.SqlDataReader["DNI"];
                     aux.apellido = (String)datos.SqlDataReader["Apellido"].ToString();
                     aux.nombre = (String)datos.SqlDataReader["Nombre"].ToString();
@@ -32,7 +32,7 @@ namespace NEGOCIO
                     aux.direccion = (String)datos.SqlDataReader["Direccion"].ToString();
                     aux.ciudad = (String)datos.SqlDataReader["Ciudad"].ToString();
                     aux.cp = (String)datos.SqlDataReader["CodigoPostal"].ToString();
-                    aux.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
+                  //  aux.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
 
                     listarClientes.Add(aux);
                 }
@@ -53,37 +53,49 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                String query = "SELECT Id,DNI,Nombre, Apellido,Email,Direccion,Ciudad,SELECT Id,DNI,Nombre, Apellido,Email,Direccion,Ciudad,CodigoPostal,FechaRegistro FROM Clientes";
-                datos.seterQuery(query);
-                Cliente aux;
+                //String query = "SELECT Id, DNI, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal, FechaRegistro FROM Clientes";
+                //datos.seterQuery(query);
+                datos.seterQuery("SELECT Id, DNI, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal, FechaRegistro FROM Clientes");
+
+                Cliente cliente;
                 datos.ejecutarLector();
 
                 while (datos.SqlDataReader.Read())
                 {
-                    aux = new Cliente();
-                    aux.dni = (int)datos.SqlDataReader["DNI"];
-                    if(aux.dni==dni)
+                    cliente = new Cliente();
+                    cliente.dni = (int)datos.SqlDataReader["DNI"];
+                    // datos.agregarParametro("@DNI", cliente.dni);
+                    if (cliente.dni == dni)
                     {
-                        aux.id = (int)datos.SqlDataReader["Id"];
-                        aux.apellido = (String)datos.SqlDataReader["Apellido"].ToString();
-                        aux.nombre = (String)datos.SqlDataReader["Nombre"].ToString();
-                        aux.email = (String)datos.SqlDataReader["Email"].ToString();
-                        aux.direccion = (String)datos.SqlDataReader["Direccion"].ToString();
-                        aux.ciudad = (String)datos.SqlDataReader["Ciudad"].ToString();
-                        aux.cp = (String)datos.SqlDataReader["CodigoPostal"].ToString();
-                        aux.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
+                       // cliente.id = (int)datos.SqlDataReader["Id"];
+                        cliente.nombre = (String)datos.SqlDataReader["Nombre"].ToString();
+                        cliente.apellido = (String)datos.SqlDataReader["Apellido"].ToString();
+                        cliente.email = (String)datos.SqlDataReader["Email"].ToString();
+                        cliente.direccion = (String)datos.SqlDataReader["Direccion"].ToString();
+                        cliente.ciudad = (String)datos.SqlDataReader["Ciudad"].ToString();
+                        cliente.cp = (String)datos.SqlDataReader["CodigoPostal"].ToString();
+                       // cliente.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
 
-                        datosCliente = aux;
-
-                        datos.CerrarConexionDB();
-
+                        /*
+                        datos.agregarParametro("@Nombre", cliente.nombre);
+                        datos.agregarParametro("@Apellido", cliente.apellido);
+                        datos.agregarParametro("@Email", cliente.email);
+                        datos.agregarParametro("@Direccion", cliente.direccion);
+                        datos.agregarParametro("@Ciudad", cliente.ciudad);
+                        datos.agregarParametro("@CodigoPostal", cliente.cp);
+                        datos.agregarParametro("@FechaRegistro",cliente.fechaRegistro);
+                        */
+                        datosCliente = cliente;
                     }
-
                 }
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexionDB();
             }
             return datosCliente;
         }
