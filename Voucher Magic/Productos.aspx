@@ -26,7 +26,7 @@
                  <div class="titulo-destacado">
                   <h3><%= item.descripcion %></h3>
                  </div>
-                  <button><a href="FormCliente.aspx" class="btn-producto"> Elegir Producto</a></button>
+                  <button><a href="FindClient.aspx" class="btn-producto"> Elegir Producto</a></button>
                  <a href="https://www.google.com" class="btn-producto black button-mobile hidden-lg hidden-md hidden-sm"> Ver que hace</a>
                 </div>
         <% } %>

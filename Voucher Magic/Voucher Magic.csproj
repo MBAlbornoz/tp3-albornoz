@@ -112,6 +112,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="FindClient.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FormCliente.aspx" />
     <Content Include="Global.asax" />
@@ -124,6 +125,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="PageError.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -169,6 +171,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FindClient.aspx.cs">
+      <DependentUpon>FindClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FindClient.aspx.designer.cs">
+      <DependentUpon>FindClient.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormCliente.aspx.cs">
       <DependentUpon>FormCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -178,6 +187,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PageError.aspx.cs">
+      <DependentUpon>PageError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageError.aspx.designer.cs">
+      <DependentUpon>PageError.aspx</DependentUpon>
     </Compile>
     <Compile Include="Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>

@@ -1265,6 +1265,8 @@ h6 .small,
 h1,
 .h1 {
   font-size: 36px;
+    height: 10px;
+    width: 993px;
 }
 h2,
 .h2 {
@@ -1671,6 +1673,8 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+    top: 10px;
+    left: 0px;
 }
 .col-xs-1,
 .col-xs-2,
