@@ -67,14 +67,14 @@ namespace NEGOCIO
                     // datos.agregarParametro("@DNI", cliente.dni);
                     if (cliente.dni == dni)
                     {
-                       // cliente.id = (int)datos.SqlDataReader["Id"];
+                        cliente.id = Convert.ToInt32(datos.SqlDataReader["Id"]);
                         cliente.nombre = (String)datos.SqlDataReader["Nombre"].ToString();
                         cliente.apellido = (String)datos.SqlDataReader["Apellido"].ToString();
                         cliente.email = (String)datos.SqlDataReader["Email"].ToString();
                         cliente.direccion = (String)datos.SqlDataReader["Direccion"].ToString();
                         cliente.ciudad = (String)datos.SqlDataReader["Ciudad"].ToString();
                         cliente.cp = (String)datos.SqlDataReader["CodigoPostal"].ToString();
-                       // cliente.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
+                        cliente.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
 
                         /*
                         datos.agregarParametro("@Nombre", cliente.nombre);

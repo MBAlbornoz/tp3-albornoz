@@ -40,18 +40,20 @@ namespace Voucher_Magic
                 if (cliente.id != 0)
                 {
                     //cargarFormCliente(cliente);
-                    Response.Redirect("Default.aspx");
+                    Response.Redirect("~/FormCliente.aspx");
                 }
                 else if (cliente.id == 0)
                 {
-                   //paso por aqui
+                    //paso por aqui
+                    Response.Redirect("~/FormCliente.aspx");
+                   // Response.Redirect("FormCliente.aspx");
                 }
 
             }
             catch (Exception ex)
             {
                 Session["Error" + Session.SessionID] = ex;
-                Response.Redirect("Error.aspx");
+              //  Response.Redirect("Error.aspx");
             }
 
            
