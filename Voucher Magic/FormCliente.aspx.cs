@@ -11,21 +11,20 @@ namespace Voucher_Magic
 {
     public partial class FormCliente : System.Web.UI.Page
     {
+        bool isClient = false;
+        Cliente cliente = new Cliente();
+        NCliente negocio = new NCliente();
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-            NCliente negocio = new NCliente();
-            Cliente cliente = new Cliente();
             try
             {
-             
-                cliente = negocio.buscarCliente((int)Session["DNI_Ingresado" + Session.SessionID]);
+                 cliente = negocio.buscarCliente((int)Session["DNI_Ingresado" + Session.SessionID]);
 
                 if (cliente.id != 0)
                 {
-                        //cliente = (Cliente)Session["ClienteExistente" + Session.SessionID];
-
-                         //int numeroCliente = Convert.ToInt32(TextVerDNICl.Text);
+                        isClient = true;
                         TxtNombreCl.Text = (String)cliente.nombre;
                         TxtApellidoCl.Text = (String)cliente.apellido;
                         TxtDniCl.Text = (String)cliente.dni.ToString();
@@ -34,13 +33,23 @@ namespace Voucher_Magic
                         TxtMailCl.Text = (String)cliente.email;
                         TxtCPCl.Text = (String)cliente.cp;
 
-                        TxtDniCl.Enabled = false;
-                        //CARGO LOS COMBO TEXT DEL FORMULARIO CLIENTE
-                    
+                        TxtDniCl.Enabled = false; //DESHABILITO LA EDICION DEL COMBOTEXT DNI
+              
                 }
                 else if (cliente.id == 0)
                 {
-                    Response.Redirect("Default.aspx");
+                    TxtDniCl.Text = (String)Session["DNI_Ingresado" + Session.SessionID].ToString();
+                    TxtDniCl.Enabled = false; //DESHABILITO LA EDICION DEL COMBOTEXT DNI
+
+                   
+                    cliente.apellido = TxtApellidoCl.Text;
+                    cliente.nombre = TxtNombreCl.Text;
+                    cliente.direccion = TxtDirCl.Text;
+                    cliente.ciudad = TxtCiudadCl.Text;
+                    cliente.cp = TxtCPCl.Text;
+                    cliente.email = TxtMailCl.Text;
+                    cliente.fechaRegistro = DateTime.Now;
+                    cliente.dni = Convert.ToInt32(TxtDniCl.Text);
                 }
 
             }
@@ -56,7 +65,14 @@ namespace Voucher_Magic
         }
         protected void BtnAplicarCanje_Click(object sender, EventArgs e)
         {
-
+            if(isClient)
+            {
+                negocio.actualizarCliente(cliente);
+            }
+            else
+            {
+                negocio.altaCliente(cliente);
+            }
         }
 
       

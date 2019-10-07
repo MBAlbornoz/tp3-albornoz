@@ -104,7 +104,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.seterQuery("INSERT INTO Clientes(DNI,Nombre,Apellido,Email,Direccion,Ciudad,CodigoPostal,FechaRegistro) VALUES(@DNI,@Nombre,@Apellido,@Email,@Direccion,@Ciudad,@CodigoPostal,GETDATE())");
+                datos.seterQuery("INSERT INTO Clientes(DNI, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal, FechaRegistro) VALUES( @DNI, @Nombre, @Apellido, @Email, @Direccion, @Ciudad, @CodigoPostal, @FechaRegistro)");
 
                 datos.agregarParametro("@DNI", cliente.dni);
                 datos.agregarParametro("@Nombre", cliente.nombre);
@@ -113,6 +113,8 @@ namespace NEGOCIO
                 datos.agregarParametro("@Direccion", cliente.direccion);
                 datos.agregarParametro("@Ciudad", cliente.ciudad);
                 datos.agregarParametro("@CodigoPostal", cliente.cp);
+                datos.agregarParametro("@FechaRegistro", cliente.fechaRegistro);
+
 
                 datos.ejecutarAccion();
                 datos.CerrarConexionDB();
@@ -121,6 +123,40 @@ namespace NEGOCIO
             {
                 throw ex;
             }
+            finally
+            {
+                datos.CerrarConexionDB();
+            }
+        }
+
+        public void actualizarCliente(Cliente cliente)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.seterQuery("UPDATE Clientes SET Apellido = '@Apellido', Nombre ='@Nombre', Email='@Email', Direccion='@Direccion', Ciudad='@Ciudad', CodigoPostal='@CodigoPostal', FechaRegistro='@FechaRegistro' WHERE Id=@Id;");
+
+                datos.agregarParametro("@Apellido", cliente.apellido);
+                datos.agregarParametro("@Nombre", cliente.nombre);
+                datos.agregarParametro("@Email", cliente.email);
+                datos.agregarParametro("@Direccion", cliente.direccion);
+                datos.agregarParametro("@Ciudad", cliente.ciudad);
+                datos.agregarParametro("@CodigoPostal", cliente.cp);
+                datos.agregarParametro("@FechaRegistro", cliente.fechaRegistro);
+                datos.agregarParametro("@Id", cliente.id);
+
+                datos.ejecutarAccion();
+                datos.CerrarConexionDB();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexionDB();
+            }
+
         }
     }
 }
