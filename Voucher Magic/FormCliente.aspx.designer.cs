@@ -22,58 +22,58 @@ namespace Voucher_Magic {
         protected global::System.Web.UI.WebControls.TextBox TxtNombreCl;
         
         /// <summary>
-        /// Control TxtApellidoCli.
+        /// Control TxtApellidoCl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtApellidoCli;
+        protected global::System.Web.UI.WebControls.TextBox TxtApellidoCl;
         
         /// <summary>
-        /// Control TextDniCl.
+        /// Control TxtDniCl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextDniCl;
+        protected global::System.Web.UI.WebControls.TextBox TxtDniCl;
         
         /// <summary>
-        /// Control TextMailCl.
+        /// Control TxtMailCl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextMailCl;
+        protected global::System.Web.UI.WebControls.TextBox TxtMailCl;
         
         /// <summary>
-        /// Control TextDirCl.
+        /// Control TxtDirCl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextDirCl;
+        protected global::System.Web.UI.WebControls.TextBox TxtDirCl;
         
         /// <summary>
-        /// Control TextCityCl.
+        /// Control TxtCiudadCl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextCityCl;
+        protected global::System.Web.UI.WebControls.TextBox TxtCiudadCl;
         
         /// <summary>
-        /// Control TextCPCl.
+        /// Control TxtCPCl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextCPCl;
+        protected global::System.Web.UI.WebControls.TextBox TxtCPCl;
         
         /// <summary>
         /// Control BtnAplicarCanje.

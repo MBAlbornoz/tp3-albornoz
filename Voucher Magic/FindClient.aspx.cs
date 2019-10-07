@@ -21,14 +21,12 @@ namespace Voucher_Magic
 
             NCliente negocio = new NCliente();
             Cliente cliente= new Cliente();
-            List<Cliente> listaClientes;
+           // List<Cliente> listaClientes;
             try
             {
-                //listaClientes = negocio.listarClientes();
                 int numeroCliente = Convert.ToInt32(TextVerDNICl.Text);
-                // int numeroCliente = Convert.ToInt32(Session["NumeroDNICliente" + Session.SessionID]);
-                //  cliente = listaClientes.Find(J => J.dni == numeroCliente);
-                cliente = negocio.buscarCliente(numeroCliente);
+                Session["DNI_Ingresado" + Session.SessionID] = numeroCliente;
+               // cliente = negocio.buscarCliente(numeroCliente);
 
                 if (TextVerDNICl.Text == "")
                 {
@@ -36,18 +34,11 @@ namespace Voucher_Magic
                     //DEBO MOSTRAR MENSAJE QUE INGRESE EL DNI
                     Response.Redirect("FindClient.aspx");
                 }
+                else
+                {
+                    Response.Redirect("FormCliente.aspx");
+                }
 
-                if (cliente.id != 0)
-                {
-                    //cargarFormCliente(cliente);
-                    Response.Redirect("~/FormCliente.aspx");
-                }
-                else if (cliente.id == 0)
-                {
-                    //paso por aqui
-                    Response.Redirect("~/FormCliente.aspx");
-                   // Response.Redirect("FormCliente.aspx");
-                }
 
             }
             catch (Exception ex)
