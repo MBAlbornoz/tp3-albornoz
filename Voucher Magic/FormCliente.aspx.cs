@@ -12,12 +12,14 @@ namespace Voucher_Magic
     public partial class FormCliente : System.Web.UI.Page
     {
         bool isClient = false;
-        Cliente cliente = new Cliente();
-        NCliente negocio = new NCliente();
+        Cliente cliente;
+        NCliente negocio;
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            cliente = new Cliente();
+            negocio = new NCliente();
             try
             {
                  cliente = negocio.buscarCliente((int)Session["DNI_Ingresado" + Session.SessionID]);
@@ -58,10 +60,6 @@ namespace Voucher_Magic
                 Session["Error" + Session.SessionID] = ex;
                 //  Response.Redirect("Error.aspx");
             }
-
-
-
-
         }
         protected void BtnAplicarCanje_Click(object sender, EventArgs e)
         {
