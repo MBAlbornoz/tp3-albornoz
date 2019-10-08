@@ -4,9 +4,6 @@
 
 
 
-<body>
-    <form method="post" action="./FormCliente" id="ctl01">
-
 <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
 <script src="Scripts/bootstrap.js" type="text/javascript"></script>
 <script src="/bundles/WebFormsJs?v=N8tymL9KraMLGAMFuPycfH3pXe6uUlRXdhtYv8A_jUU1" type="text/javascript"></script>
@@ -114,7 +111,6 @@
             <asp:Button ID="BtnAplicarCanje" runat="server" Text="Finalizar" OnClick="BtnAplicarCanje_Click" />
     <!--Fin Registro info-->
        </div>
-    </form>
 
 
 </asp:Content>

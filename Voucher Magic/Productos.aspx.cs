@@ -26,9 +26,14 @@ namespace Voucher_Magic
             }
         }
 
-        protected void click_Elegir_Producto(object sender, EventArgs e)
+       
+        protected void BtnProductoSeleccionado_Click(object sender, EventArgs e)
         {
-              Response.Redirect("Default.aspx");
+
+            //  Producto elegidoId =Producto(btnSeletedProduct.GetType);
+
+            Response.Redirect("FindClient.aspx");
+            
         }
 
     }

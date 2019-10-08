@@ -16,20 +16,19 @@
     
 
       <div class="card-group">
-        <% foreach (var item in listaProductos)
+        <%  foreach (var item in listaProductos)
             { %>
                 <div onclick="dataLayer.push({ 'event' : 'GAEvent', 'eventCategory' :'landing_20170322_big-sale','eventAction':'03-categorias-secundarias','eventLabel':'01-audio'})" id="bloque-1" class="col-lg-4 col-md-4 col-sm-4 col-xs-12 recetas">
-                <div class="text-hover">
+                <div class="text-hover"></div>
                 <%------CARGA LA PAGINA DE ALTA DEL CLIENTE------%>
-                </div>
+                
                  <div class="div-overflow"> <img src="<%=item.urlImagen %>" alt=""> </div>
                  <div class="titulo-destacado">
-                  <h3><%= item.descripcion %></h3>
+                  <h3><%= item.descripcion%></h3>
                  </div>
-                  <button><a href="FindClient.aspx" class="btn-producto"> Elegir Producto</a></button>
-                 <a href="https://www.google.com" class="btn-producto black button-mobile hidden-lg hidden-md hidden-sm"> Ver que hace</a>
+                    <asp:Button ID= "btnSeletedProduct"  BorderColor="Black" BorderStyle="Groove" OnClick="BtnProductoSeleccionado_Click" runat="server" Text="Elegir Producto" />
                 </div>
         <% } %>
-                </div>
-    </div>
+      </div>
+   
 </asp:Content>

@@ -27,6 +27,7 @@ namespace Voucher_Magic
                 //btnBuscarVoucher.Text="Encontro";
                 if(!buscar.estadoVoucher(codVoucher))
                 {
+                    Session["NumeroVoucher" + Session.SessionID] = codVoucher;
                     Response.Redirect("Productos.aspx");
                 }
                 codError = "El codigo de voucher: " +codVoucher+ " ya ha sido utilizado. Por favor ingrese otro código o contactese con su proveedor";
