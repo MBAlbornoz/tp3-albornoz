@@ -46,8 +46,8 @@ namespace Voucher_Magic
             }
             catch (Exception ex)
             {
-                Session["Error" + Session.SessionID] = ex;
-              //  Response.Redirect("Error.aspx");
+              Session["Error" + Session.SessionID] = ex;
+               // Response.Redirect("Error.aspx");
             }
 
            
@@ -70,7 +70,7 @@ namespace Voucher_Magic
             else
             {
                 Session["Error" + Session.SessionID] = "El numero de DNI es incorrecto";
-              //  Response.Redirect("Error.aspx");
+                //Response.Redirect("~/Error.aspx");
             }
         }
     }
