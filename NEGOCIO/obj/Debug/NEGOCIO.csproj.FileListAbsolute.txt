@@ -7,3 +7,12 @@ C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\NEGOCIO\obj\Debug\NEGOCIO.csproj.
 C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\NEGOCIO\obj\Debug\NEGOCIO.csproj.CopyComplete
 C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\NEGOCIO\obj\Debug\NEGOCIO.dll
 C:\Users\Maga.PC-376\source\repos\TP3_Albornoz\NEGOCIO\obj\Debug\NEGOCIO.pdb
+C:\Users\Maga.PC-376\Source\Repos\tp3-albornoz\NEGOCIO\bin\Debug\NEGOCIO.dll
+C:\Users\Maga.PC-376\Source\Repos\tp3-albornoz\NEGOCIO\bin\Debug\NEGOCIO.pdb
+C:\Users\Maga.PC-376\Source\Repos\tp3-albornoz\NEGOCIO\bin\Debug\DOMINIO.dll
+C:\Users\Maga.PC-376\Source\Repos\tp3-albornoz\NEGOCIO\bin\Debug\DOMINIO.pdb
+C:\Users\Maga.PC-376\Source\Repos\tp3-albornoz\NEGOCIO\obj\Debug\NEGOCIO.csprojAssemblyReference.cache
+C:\Users\Maga.PC-376\Source\Repos\tp3-albornoz\NEGOCIO\obj\Debug\NEGOCIO.csproj.CoreCompileInputs.cache
+C:\Users\Maga.PC-376\Source\Repos\tp3-albornoz\NEGOCIO\obj\Debug\NEGOCIO.csproj.CopyComplete
+C:\Users\Maga.PC-376\Source\Repos\tp3-albornoz\NEGOCIO\obj\Debug\NEGOCIO.dll
+C:\Users\Maga.PC-376\Source\Repos\tp3-albornoz\NEGOCIO\obj\Debug\NEGOCIO.pdb

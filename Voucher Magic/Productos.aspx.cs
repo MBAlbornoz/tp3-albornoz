@@ -11,12 +11,14 @@ namespace Voucher_Magic
 {
     public partial class Productos : System.Web.UI.Page
     {
-        public List<Producto> listaProductos { get; set; }
+        public List<Producto> listaProductos {get; set; }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+             
                 NProducto negocio = new NProducto();
                 listaProductos = negocio.listarProductos();
             }
@@ -26,15 +28,16 @@ namespace Voucher_Magic
             }
         }
 
-       
+       /*
         protected void BtnProductoSeleccionado_Click(object sender, EventArgs e)
         {
 
             //  Producto elegidoId =Producto(btnSeletedProduct.GetType);
-
+            var elegido = Request.QueryString["ID"];
             Response.Redirect("FindClient.aspx");
-            
+   
         }
-
+        */
+      
     }
 }

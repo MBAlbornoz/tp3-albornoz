@@ -26,6 +26,7 @@ namespace NEGOCIO
                     if (aux.codigoVoucher == codVoucher)
                     {
                         existe = true;
+                      
                     }
                 }
                 datos.CerrarConexionDB();
@@ -60,10 +61,12 @@ namespace NEGOCIO
                         if(aux.estado==true)
                         {
                             utilizado = true;
+                   
                         }
                     }
                 }
                 datos.CerrarConexionDB();
+
             }
             catch (Exception ex)
             {

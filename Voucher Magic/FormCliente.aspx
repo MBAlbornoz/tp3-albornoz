@@ -1,7 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormCliente.aspx.cs" Inherits="Voucher_Magic.FormCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+<style>
 
+    body{
+        background-color:antiquewhite
+    }
+
+</style>
 
 
 <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
@@ -65,6 +71,7 @@
                     <p>Ciudad</p>
                         <asp:TextBox ID="TxtCiudadCl" AutoPostBack="true" AutoCompleteType="BusinessCity" placeholder="Ciudad" runat="server"></asp:TextBox>
                      </div>
+                
             </div>
     
             <%--Ingrese Codigo Postal --%>
@@ -105,13 +112,13 @@
                     <input id="celular" maxlength="12" name="celular" onblur="validarCelular(this);" value="" type="text"><input name="_D:celular" value=" " type="hidden"><div class="validRegistro"><div class="valError" id="errorCel"></div><div class="valOK" id="okCel"></div></div>
                 </div>
                 
-                
+               
                 
             </div>--%>
             <asp:Button ID="BtnAplicarCanje" runat="server" Text="Finalizar" OnClick="BtnAplicarCanje_Click" />
     <!--Fin Registro info-->
        </div>
-
+  
 
 </asp:Content>
 

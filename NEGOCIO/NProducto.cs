@@ -21,7 +21,7 @@ namespace NEGOCIO
                 while (datos.SqlDataReader.Read())
                 {
                     aux = new Producto();
-                   // aux.id =(int) datos.SqlDataReader["Id"];
+                    aux.id =Convert.ToInt32(datos.SqlDataReader["Id"]);
                     aux.titulo = (String)datos.SqlDataReader["Titulo"].ToString();
                     aux.descripcion = (String)datos.SqlDataReader["Descripcion"].ToString();
                     aux.urlImagen = (String)datos.SqlDataReader["URLImagen"].ToString();
@@ -54,8 +54,8 @@ namespace NEGOCIO
                 while (datos.SqlDataReader.Read())
                 {
                     aux = new Producto();
-                    aux.id = (int)datos.SqlDataReader["Id"];
-                    if(aux.id==id)
+                    aux.id = Convert.ToInt32(datos.SqlDataReader["Id"]);
+                    if (aux.id==id)
                     {
                         aux.titulo = (String)datos.SqlDataReader["Titulo"].ToString();
                         aux.descripcion = (String)datos.SqlDataReader["Descripcion"].ToString();

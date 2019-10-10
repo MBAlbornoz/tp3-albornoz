@@ -12,16 +12,19 @@ namespace Voucher_Magic
 {
     public partial class FindClient : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
          protected void BtnRegistroCliente_Click(object sender, EventArgs e)
         {
 
             NCliente negocio = new NCliente();
             Cliente cliente= new Cliente();
-           // List<Cliente> listaClientes;
+            var algo = Request.QueryString["ID"];
+
+            // List<Cliente> listaClientes;
             try
             {
                 int numeroCliente = Convert.ToInt32(TextVerDNICl.Text);
