@@ -34,14 +34,14 @@
         <div class="bloque2">
             <div class="bloque2Col">
                 <p>Nombre*</p>
-                <asp:TextBox ID="TxtNombreCl" placeholder="Nombre"  MaxLength="50" AutoCompleteType="FirstName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtNombreCl" placeholder="Nombre"  MaxLength="50" AutoCompleteType="FirstName" OnTextChanged="Page_Load" runat="server"></asp:TextBox>
                </div>
          </div>
         <%--Ingreso Apellido--%>
         <div class="bloque2">
             <div class="bloque2Col">
                 <p>Apellido*</p>
-                <asp:TextBox ID="TxtApellidoCl" placeholder="Apellido" MaxLength="50" AutoCompleteType="LastName" ValidateRequestMode="Enabled" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtApellidoCl" placeholder="Apellido" MaxLength="50" AutoCompleteType="LastName" ValidateRequestMode="Enabled" OnTextChanged="Page_Load" runat="server"></asp:TextBox>
               </div>
         </div>
              <%--Numero DNI---%>
@@ -55,21 +55,21 @@
         <div class="bloque2">
             <div class="bloque2Col">
                 <p>Email*</p>
-                <asp:TextBox ID="TxtMailCl"  MaxLength="50" AutoCompleteType="Email" ValidateRequestMode="Enabled" runat="server" placeholder="direction@example.com.ar"></asp:TextBox>
+                <asp:TextBox ID="TxtMailCl"  MaxLength="50" AutoCompleteType="Email" ValidateRequestMode="Enabled" runat="server" OnTextChanged="Page_Load" placeholder="direction@example.com.ar"></asp:TextBox>
             </div>          
         </div>
         <%--Ingreso Direccion de la casa--%>
         <div class="bloque2">
                 <div class="bloque2Col">
                     <p>Direccion*</p>
-                      <asp:TextBox ID="TxtDirCl"  MaxLength="100" AutoCompleteType="HomeStreetAddress" ValidateRequestMode="Enabled" runat="server" placeholder="Direccion" ></asp:TextBox>
+                      <asp:TextBox ID="TxtDirCl"  MaxLength="100" AutoCompleteType="HomeStreetAddress" ValidateRequestMode="Enabled" runat="server" OnTextChanged="Page_Load" placeholder="Direccion" ></asp:TextBox>
                 </div>
             </div>
         <%--Ingresa Ciudad--%>
             <div class="bloque2">
                 <div class="bloque2Col">
                     <p>Ciudad</p>
-                        <asp:TextBox ID="TxtCiudadCl"  AutoCompleteType="BusinessCity" placeholder="Ciudad" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TxtCiudadCl"  AutoCompleteType="BusinessCity" placeholder="Ciudad" OnTextChanged="Page_Load" runat="server"></asp:TextBox>
                      </div>
                 
             </div>
