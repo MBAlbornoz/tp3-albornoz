@@ -16,10 +16,10 @@
       <div class="form-group">
           <div>
             <div><label for="inputVoucher" class="col-lg-2 control-label">Ingrese el Número del Voucher</label></div>
-            <div><asp:TextBox ID="txtBuscarVoucher" AutoPostBack="true" BorderColor="Black" Height="40px" Width="504px" placeholder="Número Voucher" runat="server"></asp:TextBox> </div>
+            <div><asp:TextBox ID="txtBuscarVoucher" AutoPostBack="true" BorderColor="Black" Height="40px" Width="504px" runat="server"></asp:TextBox> </div>
           </div>
         </div>
-        <asp:Button ID="btnBuscarVoucher" Width="200" Height="40" BackColor="Window" BorderColor="Black" OnClick="btnBuscarVoucher_Click" runat="server" Text="Buscar Voucher"  href="https://github.com/MBAlbornoz/tp3-albornoz/" />
+        <asp:Button ID="btnBuscarVoucher" Width="200" Height="40" BackColor="Window" BorderColor="Black" OnClick="btnBuscarVoucher_Click" runat="server" Text="Buscar Voucher"/>
         
     </div>
     <div></div>

@@ -24,7 +24,6 @@ namespace NEGOCIO
                 while (datos.SqlDataReader.Read())
                 {
                     aux = new Cliente();
-                   // aux.id = (int)datos.SqlDataReader["Id"];
                     aux.dni = (int)datos.SqlDataReader["DNI"];
                     aux.apellido = (String)datos.SqlDataReader["Apellido"].ToString();
                     aux.nombre = (String)datos.SqlDataReader["Nombre"].ToString();
@@ -32,7 +31,7 @@ namespace NEGOCIO
                     aux.direccion = (String)datos.SqlDataReader["Direccion"].ToString();
                     aux.ciudad = (String)datos.SqlDataReader["Ciudad"].ToString();
                     aux.cp = (String)datos.SqlDataReader["CodigoPostal"].ToString();
-                  //  aux.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
+                    aux.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
 
                     listarClientes.Add(aux);
                 }
@@ -43,6 +42,7 @@ namespace NEGOCIO
             {
                 throw ex;
             }
+         
         }
 
         public Cliente buscarCliente(int dni)
@@ -53,8 +53,6 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                //String query = "SELECT Id, DNI, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal, FechaRegistro FROM Clientes";
-                //datos.seterQuery(query);
                 datos.seterQuery("SELECT Id, DNI, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal, FechaRegistro FROM Clientes");
 
                 Cliente cliente;
@@ -62,9 +60,10 @@ namespace NEGOCIO
 
                 while (datos.SqlDataReader.Read())
                 {
-                    cliente = new Cliente();
-                    cliente.dni = (int)datos.SqlDataReader["DNI"];
-                    // datos.agregarParametro("@DNI", cliente.dni);
+                    cliente = new Cliente
+                    {
+                        dni = (int)datos.SqlDataReader["DNI"]
+                    };
                     if (cliente.dni == dni)
                     {
                         cliente.id = Convert.ToInt32(datos.SqlDataReader["Id"]);
@@ -75,16 +74,6 @@ namespace NEGOCIO
                         cliente.ciudad = (String)datos.SqlDataReader["Ciudad"].ToString();
                         cliente.cp = (String)datos.SqlDataReader["CodigoPostal"].ToString();
                         cliente.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
-
-                        /*
-                        datos.agregarParametro("@Nombre", cliente.nombre);
-                        datos.agregarParametro("@Apellido", cliente.apellido);
-                        datos.agregarParametro("@Email", cliente.email);
-                        datos.agregarParametro("@Direccion", cliente.direccion);
-                        datos.agregarParametro("@Ciudad", cliente.ciudad);
-                        datos.agregarParametro("@CodigoPostal", cliente.cp);
-                        datos.agregarParametro("@FechaRegistro",cliente.fechaRegistro);
-                        */
                         datosCliente = cliente;
                     }
                 }
@@ -104,7 +93,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.seterQuery("INSERT INTO Clientes(DNI, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal, FechaRegistro) VALUES( @DNI, @Nombre, @Apellido, @Email, @Direccion, @Ciudad, @CodigoPostal, @FechaRegistro)");
+                datos.seterQuery("INSERT INTO Clientes(DNI, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal, FechaRegistro) VALUES( @DNI, '@Nombre', '@Apellido', '@Email', '@Direccion', '@Ciudad', @CodigoPostal, @FechaRegistro)");
 
                 datos.agregarParametro("@DNI", cliente.dni);
                 datos.agregarParametro("@Nombre", cliente.nombre);
@@ -115,9 +104,8 @@ namespace NEGOCIO
                 datos.agregarParametro("@CodigoPostal", cliente.cp);
                 datos.agregarParametro("@FechaRegistro", cliente.fechaRegistro);
 
-
                 datos.ejecutarAccion();
-                datos.CerrarConexionDB();
+     
             }
             catch (Exception ex)
             {
@@ -134,7 +122,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.seterQuery("UPDATE Clientes SET Apellido = '@Apellido', Nombre ='@Nombre', Email='@Email', Direccion='@Direccion', Ciudad='@Ciudad', CodigoPostal='@CodigoPostal', FechaRegistro='@FechaRegistro' WHERE Id=@Id;");
+                datos.seterQuery("UPDATE Clientes SET Apellido = @Apellido, Nombre =@Nombre, Email=@Email, Direccion=@Direccion, Ciudad=@Ciudad, CodigoPostal=@CodigoPostal, FechaRegistro= @FechaRegistro WHERE Id=@Id ");
 
                 datos.agregarParametro("@Apellido", cliente.apellido);
                 datos.agregarParametro("@Nombre", cliente.nombre);
@@ -146,11 +134,11 @@ namespace NEGOCIO
                 datos.agregarParametro("@Id", cliente.id);
 
                 datos.ejecutarAccion();
-                datos.CerrarConexionDB();
+              
             }
             catch (Exception ex)
             {
-                throw ex;
+               throw ex;
             }
             finally
             {

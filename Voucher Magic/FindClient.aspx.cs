@@ -19,33 +19,32 @@ namespace Voucher_Magic
         }
          protected void BtnRegistroCliente_Click(object sender, EventArgs e)
         {
-
-            NCliente negocio = new NCliente();
-            Cliente cliente= new Cliente();
             var algo = Request.QueryString["ID"];
+            Session["idProducto" + Session.SessionID] = algo;
 
             // List<Cliente> listaClientes;
             try
             {
                 int numeroCliente = Convert.ToInt32(TextVerDNICl.Text);
                 Session["DNI_Ingresado" + Session.SessionID] = numeroCliente;
-               // cliente = negocio.buscarCliente(numeroCliente);
+               // cliente = negocioCliente.buscarCliente(numeroCliente);
 
                 if (TextVerDNICl.Text == "")
                 {
                     //TEMPORAL, DEBO CAMBIAR A POSBACK PARA QUE RELEA LA PAGINA
                     //DEBO MOSTRAR MENSAJE QUE INGRESE EL DNI
-                    Response.Redirect("FindClient.aspx");
+                    Response.Redirect("~/FindClient.aspx");
                 }
                 else
                 {
-                    Response.Redirect("FormCliente.aspx");
+                    Response.Redirect("~/FormCliente.aspx");
                 }
 
 
             }
             catch (Exception ex)
             {
+               
               Session["Error" + Session.SessionID] = ex;
                // Response.Redirect("Error.aspx");
             }

@@ -9,7 +9,7 @@
          box-shadow: inset 0 1px 0 0 rgba(102,191,255,0.75), 0 0 0 0 rgba(0,149,255,0);
          color: #FFF;
             }
-        }
+        
         </style>
 
   

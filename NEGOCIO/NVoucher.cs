@@ -15,7 +15,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                String query = "select Id,CodigoVoucher,Estado from Vouchers";
+                String query = "select Id, CodigoVoucher, Estado from Vouchers";
                 datos.seterQuery(query);
                 datos.ejecutarLector();
 
@@ -46,7 +46,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                String query = "select Id,CodigoVoucher,Estado from Vouchers";
+                String query = "select Id, CodigoVoucher, Estado from Vouchers";
                 datos.seterQuery(query);
                 datos.ejecutarLector();
 
@@ -81,7 +81,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.seterQuery("UPDATE Vouchers SET Estado = 1, IdCliente=@IdCliente, IdProducto = @IdProducto, FechaRegistro = GETDATE() WHERE Id = @Id AND CodigoVoucher = @CodigoVoucher");
+                datos.seterQuery("UPDATE Vouchers SET Estado = 1, IdCliente=@IdCliente, IdProducto = @IdProducto, FechaRegistro = GETDATE() WHERE Id = @Id AND CodigoVoucher = '@CodigoVoucher' ");
                 datos.agregarParametro("@IdCliente", voucher.cliente.id);
                 datos.agregarParametro("@IdProducto", voucher.producto.id);
                 datos.agregarParametro("@Id", voucher.id);
@@ -101,7 +101,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                String query = "select Id,CodigoVoucher,Estado from Vouchers";
+                String query = "SELECT Id, CodigoVoucher, Estado, IdCliente, IdProducto, FechaRegistro FROM Vouchers";
                 datos.seterQuery(query);
                 List<Voucher> listarVouchers = new List<Voucher>();
                 Voucher aux;
@@ -110,10 +110,12 @@ namespace NEGOCIO
                 while (datos.SqlDataReader.Read())
                 {
                     aux = new Voucher();
-                    aux.id = (int)datos.SqlDataReader["Id"];
+                    aux.id = Convert.ToInt32(datos.SqlDataReader["Id"]);
                     aux.codigoVoucher = (string)datos.SqlDataReader["CodigoVoucher"];
                     aux.estado = (bool)datos.SqlDataReader["Estado"];
-
+                    aux.cliente.id = Convert.ToInt32(datos.SqlDataReader["IdCliente"]);
+                    aux.producto.id = Convert.ToInt32(datos.SqlDataReader["IdProducto"]);
+                    aux.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
                     //Me faltan cliente y producto
                     listarVouchers.Add(aux);
                 }
@@ -124,6 +126,36 @@ namespace NEGOCIO
             {
                 throw ex;
             }
+        }
+
+        public Voucher obtenerVoucher(string codVoucher)
+        {
+            Voucher aux=new Voucher();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                String query = "SELECT Id, CodigoVoucher, Estado, IdCliente, IdProducto, FechaRegistro FROM Vouchers";
+                datos.seterQuery(query);
+                datos.ejecutarLector();
+
+                while (datos.SqlDataReader.Read())
+                {
+                    aux = new Voucher();
+                    aux.id = Convert.ToInt32(datos.SqlDataReader["Id"]);
+                    aux.codigoVoucher = (string)datos.SqlDataReader["CodigoVoucher"];
+                    aux.estado = (bool)datos.SqlDataReader["Estado"];
+                    aux.cliente.id = Convert.ToInt32(datos.SqlDataReader["IdCliente"]);
+                    aux.producto.id = Convert.ToInt32(datos.SqlDataReader["IdProducto"]);
+                    aux.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
+                }
+                datos.CerrarConexionDB();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return aux;
         }
     }
 }

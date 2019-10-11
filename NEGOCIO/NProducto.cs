@@ -61,13 +61,16 @@ namespace NEGOCIO
                         aux.descripcion = (String)datos.SqlDataReader["Descripcion"].ToString();
                         aux.urlImagen = (String)datos.SqlDataReader["URLImagen"].ToString();
                         elegido = aux;
-                        datos.CerrarConexionDB();
                     }
                 }
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexionDB();
             }
             return elegido;
         }
