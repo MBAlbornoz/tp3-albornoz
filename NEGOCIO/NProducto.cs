@@ -42,26 +42,22 @@ namespace NEGOCIO
         public Producto elegirProducto(int id)
         {
             //Producto producto = new Producto();
-            Producto aux;
+            Producto aux= new Producto(); 
             Producto elegido= new Producto();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                String query = "SELECT Id,Titulo,Descripcion, URLImagen FROM Productos";
+                String query = "SELECT Id, Titulo, Descripcion, URLImagen FROM Productos WHERE Id="+id;
                 datos.seterQuery(query);
                 datos.ejecutarLector();
 
                 while (datos.SqlDataReader.Read())
                 {
-                    aux = new Producto();
-                    aux.id = Convert.ToInt32(datos.SqlDataReader["Id"]);
-                    if (aux.id==id)
-                    {
+                        aux.id = Convert.ToInt32(datos.SqlDataReader["Id"]);
                         aux.titulo = (String)datos.SqlDataReader["Titulo"].ToString();
                         aux.descripcion = (String)datos.SqlDataReader["Descripcion"].ToString();
                         aux.urlImagen = (String)datos.SqlDataReader["URLImagen"].ToString();
                         elegido = aux;
-                    }
                 }
             }
             catch (Exception ex)

@@ -41,6 +41,12 @@ namespace Voucher_Magic
 
                         TxtDniCl.Enabled = false; //DESHABILITO LA EDICION DEL COMBOTEXT DNI
                     }
+                    else
+                    {
+                        cliente.dni = (int)Session["DNI_Ingresado" + Session.SessionID];
+                        TxtDniCl.Text = cliente.dni.ToString();
+                        TxtDniCl.Enabled = false;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -61,6 +67,12 @@ namespace Voucher_Magic
 
                 TxtDniCl.Enabled = false; //DESHABILITO LA EDICION DEL COMBOTEXT DNI
             }
+            else
+            {
+                cliente.dni= (int)Session["DNI_Ingresado" + Session.SessionID];
+                TxtDniCl.Text = cliente.dni.ToString();
+                TxtDniCl.Enabled = false;
+            }
 
         }
         protected void BtnAplicarCanje_Click(object sender, EventArgs e)
@@ -77,25 +89,28 @@ namespace Voucher_Magic
                 {
                     int idProducto = Convert.ToInt32(Session["idProducto" + Session.SessionID]);
                     String codVoucher = (String)Session["NumeroVoucher" + Session.SessionID];
-                    
-                     //producto = negocioProducto.elegirProducto(idProducto);
+
+                    //producto = negocioProducto.elegirProducto(idProducto);
                     //voucher = negocioVoucher.obtenerVoucher(codVoucher);
 
                     if (isClient)
                     {
                         negocioCliente.actualizarCliente(cliente);
-                        voucher= negocioVoucher.obtenerVoucher(codVoucher);
+                        voucher = negocioVoucher.obtenerVoucher(codVoucher);
                         voucher.cliente = cliente;
                         voucher.producto = negocioProducto.elegirProducto(idProducto);
                         voucher.codigoVoucher = codVoucher;
                         voucher.estado = true;
                         voucher.fechaRegistro = DateTime.Now;
                         negocioVoucher.canjearVoucher(voucher);
+                        ingreso = true;
+                        Response.Redirect("Fin.aspx");
                     }
                     else
                     {
                         cliente.apellido = TxtApellidoCl.Text;
                         cliente.nombre = TxtNombreCl.Text;
+                        cliente.dni = Convert.ToInt32(TxtDniCl.Text);
                         cliente.direccion = TxtDirCl.Text;
                         cliente.ciudad = TxtCiudadCl.Text;
                         cliente.cp = TxtCPCl.Text;
@@ -104,6 +119,9 @@ namespace Voucher_Magic
 
                         negocioCliente.altaCliente(cliente);
                         // voucher.id = negocioVoucher.obtenerVoucher(voucher.codigoVoucher).id;
+
+                        cliente = negocioCliente.buscarCliente(cliente.dni);
+                        voucher = negocioVoucher.obtenerVoucher(codVoucher);
                         voucher.cliente = cliente;
                         voucher.producto = negocioProducto.elegirProducto(idProducto);
                         // voucher.producto = negocioProducto.elegirProducto(producto.id);
@@ -112,9 +130,11 @@ namespace Voucher_Magic
                         voucher.fechaRegistro = DateTime.Now;
                         negocioVoucher.canjearVoucher(voucher);
                         isClient = true;
+                        ingreso = true;
+                        Response.Redirect("Fin.aspx");
                     }
 
-                    ingreso = true;
+                 
                 }
                 catch (Exception ex)
                 {

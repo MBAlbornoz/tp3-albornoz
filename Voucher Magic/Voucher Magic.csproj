@@ -113,6 +113,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Fin.aspx" />
     <Content Include="FindClient.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FormCliente.aspx" />
@@ -178,6 +179,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fin.aspx.cs">
+      <DependentUpon>Fin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fin.aspx.designer.cs">
+      <DependentUpon>Fin.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindClient.aspx.cs">
       <DependentUpon>FindClient.aspx</DependentUpon>

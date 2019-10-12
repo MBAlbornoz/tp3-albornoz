@@ -93,7 +93,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.seterQuery("INSERT INTO Clientes(DNI, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal, FechaRegistro) VALUES( @DNI, '@Nombre', '@Apellido', '@Email', '@Direccion', '@Ciudad', @CodigoPostal, @FechaRegistro)");
+                datos.seterQuery("INSERT INTO Clientes(DNI, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal, FechaRegistro) VALUES( @DNI, @Nombre, @Apellido, @Email, @Direccion, @Ciudad, @CodigoPostal, @FechaRegistro)");
 
                 datos.agregarParametro("@DNI", cliente.dni);
                 datos.agregarParametro("@Nombre", cliente.nombre);
@@ -111,10 +111,7 @@ namespace NEGOCIO
             {
                 throw ex;
             }
-            finally
-            {
-                datos.CerrarConexionDB();
-            }
+            
         }
 
         public void actualizarCliente(Cliente cliente)

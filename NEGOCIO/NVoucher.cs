@@ -81,14 +81,14 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.seterQuery("UPDATE Vouchers SET Estado = 1, IdCliente=@IdCliente, IdProducto = @IdProducto, FechaRegistro = GETDATE() WHERE Id = @Id AND CodigoVoucher = '@CodigoVoucher' ");
+                datos.seterQuery("UPDATE Vouchers SET Estado = 1, IdCliente=@IdCliente, IdProducto = @IdProducto, FechaRegistro = GETDATE() WHERE Id = @Id AND CodigoVoucher = @CodigoVoucher ");
                 datos.agregarParametro("@IdCliente", voucher.cliente.id);
                 datos.agregarParametro("@IdProducto", voucher.producto.id);
                 datos.agregarParametro("@Id", voucher.id);
                 datos.agregarParametro("@CodigoVoucher", voucher.codigoVoucher);
 
                 datos.ejecutarAccion();
-                datos.CerrarConexionDB();
+                //datos.CerrarConexionDB();
             }
             catch (Exception ex)
             {
@@ -134,7 +134,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                String query = "SELECT Id, CodigoVoucher, Estado, IdCliente, IdProducto, FechaRegistro FROM Vouchers";
+                String query = "SELECT Id, CodigoVoucher, Estado, FechaRegistro FROM Vouchers WHERE CodigoVoucher=" + "'"+codVoucher+"'";
                 datos.seterQuery(query);
                 datos.ejecutarLector();
 
@@ -142,11 +142,8 @@ namespace NEGOCIO
                 {
                     aux = new Voucher();
                     aux.id = Convert.ToInt32(datos.SqlDataReader["Id"]);
-                    aux.codigoVoucher = (string)datos.SqlDataReader["CodigoVoucher"];
-                    aux.estado = (bool)datos.SqlDataReader["Estado"];
-                    aux.cliente.id = Convert.ToInt32(datos.SqlDataReader["IdCliente"]);
-                    aux.producto.id = Convert.ToInt32(datos.SqlDataReader["IdProducto"]);
-                    aux.fechaRegistro = (DateTime)datos.SqlDataReader["FechaRegistro"];
+                    aux.codigoVoucher = codVoucher;
+                    aux.estado = (bool)datos.SqlDataReader["Estado"]; //NO LO VOY A NECESITAR SOLO ENTRA SI EL VOUCHER ES FALSO
                 }
                 datos.CerrarConexionDB();
 
